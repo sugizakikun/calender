@@ -14,7 +14,8 @@ class GetCalender
             // HTTPコンテキストオプションをセット
             'http' => array(
                 'method'=> 'GET',
-                'header'=> 'Content-type: application/json; charset=UTF-8' //JSON形式で表示
+                'header'=> 'Content-type: application/json; charset=UTF-8', //JSON形式で表示
+                'user_agent' => 'Mixtend Coding Test'
             )
         );
 
