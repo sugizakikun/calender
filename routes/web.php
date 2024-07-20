@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CalenderController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/calender', function () {
-    return view('calender');
-});
+//calenderのデータを取得
+Route::get('/calender', 'App\Http\Controllers\CalenderController@index');
