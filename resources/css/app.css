@@ -1,10 +1,16 @@
 table{
     width: 880px;
+    color: #424242;
+    font-weight:bold;
 }
 
 table, th, td{
     border-collapse: collapse;
     border:1px solid #ddd;
+}
+
+th{
+    font-weight: normal;
 }
 
 tr.tbl-body_row{
@@ -16,6 +22,7 @@ tr.tbl-body_row{
     width: 100%; /* または適切な幅 */
     height: auto; /* または適切な高さ */
     background-color: #f0f0f0; /* デバッグ用に背景色を設定 */
+    color: white;
 }
 
 .event-block {
