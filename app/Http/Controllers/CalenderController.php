@@ -9,10 +9,13 @@ class CalenderController extends Controller
 {
     public function index(GetCalender $getCalender){
         $calender = $getCalender->execute();
+        $workingHours = $calender->working_hours;
 
         return view('calender', [
-            'working_hours' => $calender->working_hours,
-            'meetings' => $calender->meetings
+            'start_hour' => explode(':', $workingHours->start)[0],
+            'end_hour' => explode(':', $workingHours->end)[0],
+            'meetings' => $calender->meetings,
+            'week' =>  array( "日", "月", "火", "水", "木", "金", "土")
         ]);
     }
 }
