@@ -17,7 +17,7 @@
                     <th scope="col"></th>
                     @foreach($meetings as $date => $meeting )
                     <th scope="col" class="h_{{$date}}">
-                        {{date('n月d日',strtotime($date))}}
+                        {{date('n/d',strtotime($date))}}
                         ({{$week[date("w", strtotime($date))]}})
                     </th>
                     @endforeach
@@ -78,20 +78,19 @@ document.addEventListener('DOMContentLoaded', function() {
             block.className = 'event-block';
 
             const eventStartHour = parseInt(event.start.split(':')[0]);
-            const eventEndHour = parseInt(event.end.split(':')[0]);
+            const eventStartMinute = parseInt(event.start.split(':')[1]);
+            const eventStartTime = eventStartHour + eventStartMinute/60;
 
-            block.style.position= 'absolute';
-            block.style.border = '1px solid #fff';
-            block.style.color = 'white'
-            block.style.backgroundColor = '#49b5a9';
-            block.style.padding = '5px';
+            const eventEndHour = parseInt(event.end.split(':')[0]);
+            const eventEndMinute = parseInt(event.start.split(':')[1]);
+            const eventEndTime = eventEndHour + eventEndMinute/60;
+
             block.style.left = `${headerStartX}px`; // 適宜調整
             block.style.width = `${headerWidth}px`; // 適宜調整
-            block.style.zindex = 1;
 
             // 時間帯に基づいて高さを計算
-            const top = (eventStartHour - startHour) * rowHeight + startY; // 開始時間に基づいて位置を調整
-            const height = (eventEndHour - eventStartHour) * rowHeight;
+            const top = (eventStartTime - startHour) * rowHeight + startY; // 開始時間に基づいて位置を調整
+            const height = (eventEndTime - eventStartTime) * rowHeight;
 
             block.style.top = `${top}px`;
             block.style.height = `${height}px`;
