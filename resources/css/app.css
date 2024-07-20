@@ -1,0 +1,13 @@
+#event-container {
+    position: relative;
+    height: 100px; /* 必要に応じて調整 */
+    overflow: hidden;
+}
+
+.event-block {
+    position: absolute;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    padding: 5px;
+    box-sizing: border-box;
+}
